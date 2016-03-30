@@ -7,7 +7,8 @@
   "scripts": {
     "build": "docker build -t debug-funtime .",
     "start": "docker run -d -p 3000:3000 --name debug-funtime debug-funtime",
-    "stop": "docker rm -f debug-funtime"
+    "stop": "docker rm -f debug-funtime",
+    "attach": "docker exec -it debug-funtime bash"
   },
   "keywords": [],
   "author": "Joe Whitfield-Seed <joeseed86@gmail.com>",
