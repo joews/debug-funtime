@@ -34,10 +34,12 @@ Some useful options:
 * `-p <pid>` - strace a running process
 * `-s <m>` display `n` bytes of content (default 32) for syscalls. E.g. to view full(er) HTTP traffic:
 
-    ❯ strace -s 1024 -e sendto,recvfrom -o curl.strace curl http://google.com
-    ❯ less curl.strace
-    sendto(3, "GET / HTTP/1.1\r\nUser-Agent: curl/7.29.0\r\nHost: google.com\r\nAccept: */*\r\n\r\n", 74, MSG_NOSIGNAL, NULL, 0) = 74
-    recvfrom(3, "HTTP/1.1 302 Found\r\nCache-Control: private\r\nContent-Type: text/html; charset=UTF-8\r\nLocation: http://www.google.co.uk/?gfe_rd=cr&ei=VJR7V_vdAefR8getx6-oDA\r\nContent-Length: 261\r\nDate: Tue, 05 Jul 2016 11:04:52 GMT\r\n\r\n<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>302 Moved</TITLE></HEAD><BODY>\n<H1>302 Moved</H1>\nThe document has moved\n<A HREF=\"http://www.google.co.uk/?gfe_rd=cr&amp;ei=VJR7V_vdAefR8getx6-oDA\">here</A>.\r\n</BODY></HTML>\r\n", 16384, 0, NULL, NULL) = 477
+````bash
+❯ strace -s 1024 -e sendto,recvfrom -o curl.strace curl http://google.com
+❯ less curl.strace
+sendto(3, "GET / HTTP/1.1\r\nUser-Agent: curl/7.29.0\r\nHost: google.com\r\nAccept: */*\r\n\r\n", 74, MSG_NOSIGNAL, NULL, 0) = 74
+recvfrom(3, "HTTP/1.1 302 Found\r\nCache-Control: private\r\nContent-Type: text/html; charset=UTF-8\r\nLocation: http://www.google.co.uk/?gfe_rd=cr&ei=VJR7V_vdAefR8getx6-oDA\r\nContent-Length: 261\r\nDate: Tue, 05 Jul 2016 11:04:52 GMT\r\n\r\n<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>302 Moved</TITLE></HEAD><BODY>\n<H1>302 Moved</H1>\nThe document has moved\n<A HREF=\"http://www.google.co.uk/?gfe_rd=cr&amp;ei=VJR7V_vdAefR8getx6-oDA\">here</A>.\r\n</BODY></HTML>\r\n", 16384, 0, NULL, NULL) = 477
+````
 
 ### Examples
 
