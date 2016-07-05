@@ -8,7 +8,7 @@
     "autopsy": "autopsy",
     "mdb": "autopsy $(which node)",
     "build": "docker build -t debug-funtime .",
-    "start": "docker run -d -p 3000:3000 --name debug-funtime debug-funtime",
+    "start": "docker run -t -d -p 3000:3000 --cap-add=SYS_PTRACE --security-opt=apparmor:unconfined --name debug-funtime debug-funtime",
     "stop": "docker rm -f debug-funtime",
     "attach": "docker exec -it debug-funtime bash"
   },
